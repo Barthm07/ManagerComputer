@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.IO;
 using System.Net.Sockets;
 using ManagerComputer.Models;
 using ManagerComputer.Network;
@@ -36,10 +37,10 @@ namespace ManagerComputer.Services
                 var header = new byte[8];
                 while (true)
                 {
-                    await stream.ReadExactlyAsync(header, 0, 8);
+                    await ReadExactAsync(stream, header, 8);
                     var length = BitConverter.ToInt32(header, 4);
                     var data = new byte[length];
-                    await stream.ReadExactlyAsync(data, 0, length);
+                    await ReadExactAsync(stream, data, length);
 
                     var packet = Packet.Deserialize(header, data);
                     if (packet.Type == PacketType.ScreenFrame)
@@ -51,6 +52,17 @@ namespace ManagerComputer.Services
                 // Client disconnected
                 computer.IsOnline = false;
                 _streams.Remove(computer);
+            }
+        }
+
+        private static async Task ReadExactAsync(Stream stream, byte[] buffer, int count)
+        {
+            int offset = 0;
+            while (offset < count)
+            {
+                int read = await stream.ReadAsync(buffer, offset, count - offset);
+                if (read == 0) throw new EndOfStreamException();
+                offset += read;
             }
         }
 

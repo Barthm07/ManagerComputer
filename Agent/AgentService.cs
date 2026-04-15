@@ -41,7 +41,7 @@ namespace ManagerComputer.Agent
             var header = new byte[8];
             while (_client.Stream != null)
             {
-                await _client.Stream.ReadExactlyAsync(header, 0, 8);
+                await ReadExactAsync(_client.Stream, header, 8);
                 var type = (PacketType)BitConverter.ToInt32(header, 0);
 
                 if (type == PacketType.LockCommand)
@@ -54,6 +54,17 @@ namespace ManagerComputer.Agent
                     _isLocked = false;
                     UnlockRequested?.Invoke();
                 }
+            }
+        }
+
+        private static async Task ReadExactAsync(Stream stream, byte[] buffer, int count)
+        {
+            int offset = 0;
+            while (offset < count)
+            {
+                int read = await stream.ReadAsync(buffer, offset, count - offset);
+                if (read == 0) throw new EndOfStreamException();
+                offset += read;
             }
         }
 
