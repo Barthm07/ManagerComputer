@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Release\net10.0-windows\
 ManagerComputer
 none
 false
@@ -12,8 +12,8 @@ TRACE;RELEASE;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0
 C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\App.xaml
 3-905831164
 
-181231478170
-42879029324
+13-766901190
+21439514662
 Agent\LockOverlay.xaml;LoginWindow.xaml;MainWindow.xaml;
 
 True
