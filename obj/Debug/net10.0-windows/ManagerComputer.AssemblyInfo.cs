@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ManagerComputer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc859a36c69d9283376a64eac99b517ae785f572")]
 [assembly: System.Reflection.AssemblyProductAttribute("ManagerComputer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ManagerComputer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
