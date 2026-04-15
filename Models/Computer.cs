@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ManagerComputer.Models
+﻿namespace ManagerComputer.Models
 {
-    internal class Computer
+    public class Computer
     {
+        public string Name { get; set; } = "";
+        public string IpAddress { get; set; } = "";
+        public bool IsLocked { get; set; } = false;
+        public bool IsOnline { get; set; } = false;
     }
 }
