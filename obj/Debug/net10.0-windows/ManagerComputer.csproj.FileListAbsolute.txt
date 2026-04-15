@@ -1,0 +1,10 @@
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\Agent\LockOverlay.baml
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\LoginWindow.baml
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\MainWindow.baml
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\Agent\LockOverlay.g.cs
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\LoginWindow.g.cs
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\MainWindow.g.cs
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\App.g.cs
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\ManagerComputer_MarkupCompile.cache
+C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\obj\Debug\net10.0-windows\ManagerComputer_MarkupCompile.lref

@@ -75,4 +75,4 @@ namespace ManagerComputer.Agent
 
         public void Stop() => _cts.Cancel();
     }
-}
+}   

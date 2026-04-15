@@ -1,5 +1,5 @@
 ﻿ManagerComputer
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 C:\Users\Daszek\source\repos\ManagerComputer\ManagerComputer\App.xaml
 3-905831164
 
-151097923221
+131534683562
 2141900907832
 Agent\LockOverlay.xaml;LoginWindow.xaml;MainWindow.xaml;
 
-False
+True
 
