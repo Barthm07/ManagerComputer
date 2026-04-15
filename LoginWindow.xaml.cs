@@ -8,16 +8,16 @@ namespace ManagerComputer
     {
         private static readonly Dictionary<string, string> UserCredentials = new()
         {
-            { "user", "User1" },
-            { "user", "User2" },
-            { "user", "User3" },
-            { "user", "User4" },
-            { "user", "User5" },
-            { "user", "User6" },
-            { "user", "User7" },
-            { "user", "User8" },
-            { "user", "User9" },
-            { "user", "User10" },
+            { "user1",  "User1"  },
+            { "user2",  "User2"  },
+            { "user3",  "User3"  },
+            { "user4",  "User4"  },
+            { "user5",  "User5"  },
+            { "user6",  "User6"  },
+            { "user7",  "User7"  },
+            { "user8",  "User8"  },
+            { "user9",  "User9"  },
+            { "user10", "User10" },
         };
 
         public LoginWindow()
@@ -40,7 +40,7 @@ namespace ManagerComputer
             }
 
             // User login → start Agent, connect to server
-            if (username == "user" && UserCredentials.ContainsValue(password))
+            if (UserCredentials.TryGetValue(username, out var expectedPassword) && password == expectedPassword)
             {
                 try
                 {
@@ -77,7 +77,7 @@ namespace ManagerComputer
                             Foreground = System.Windows.Media.Brushes.White
                         },
                         Background = new System.Windows.Media.SolidColorBrush(
-         System.Windows.Media.Color.FromRgb(30, 30, 46)),
+                            System.Windows.Media.Color.FromRgb(30, 30, 46)),
                         Width = 400,
                         Height = 200,
                         WindowStartupLocation = WindowStartupLocation.CenterScreen

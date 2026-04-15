@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace ManagerComputer
 {
-    public class BoolToBrushConverter : IValueConverter
+    public class BoolToBrushConverter : System.Windows.Data.IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -1,7 +1,7 @@
 ﻿using ManagerComputer.Network;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
+using Drawing = System.Drawing;
+using WinForms = System.Windows.Forms;
 
 namespace ManagerComputer.Agent
 {
@@ -59,20 +59,21 @@ namespace ManagerComputer.Agent
 
         private byte[] CaptureScreen()
         {
-            var bounds = System.Windows.Forms.Screen.PrimaryScreen!.Bounds;
-            using var bmp = new Bitmap(bounds.Width, bounds.Height);
-            using var g = Graphics.FromImage(bmp);
-            g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
+            var bounds = WinForms.Screen.PrimaryScreen!.Bounds;
+            using var bmp = new Drawing.Bitmap(bounds.Width, bounds.Height);
+            using var g = Drawing.Graphics.FromImage(bmp);
+            g.CopyFromScreen(bounds.Location, Drawing.Point.Empty, bounds.Size);
 
             using var ms = new MemoryStream();
-            var encoder = ImageCodecInfo.GetImageEncoders()
-                .First(c => c.FormatID == ImageFormat.Jpeg.Guid);
-            var encoderParams = new EncoderParameters(1);
-            encoderParams.Param[0] = new EncoderParameter(Encoder.Quality, 40L);
+            var encoder = Drawing.Imaging.ImageCodecInfo.GetImageEncoders()
+                .First(c => c.FormatID == Drawing.Imaging.ImageFormat.Jpeg.Guid);
+            var encoderParams = new Drawing.Imaging.EncoderParameters(1);
+            encoderParams.Param[0] = new Drawing.Imaging.EncoderParameter(
+                Drawing.Imaging.Encoder.Quality, 40L);
             bmp.Save(ms, encoder, encoderParams);
             return ms.ToArray();
         }
 
         public void Stop() => _cts.Cancel();
     }
-}   
+}
