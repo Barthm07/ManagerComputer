@@ -29,6 +29,7 @@ namespace ManagerComputer
         {
             var username = UsernameBox.Text.Trim().ToLower();
             var password = PasswordBox.Password;
+            var serverIp = ServerIpBox.Text.Trim();
 
             // Admin login → open Server UI
             if (username == "admin" && password == "admin")
@@ -42,6 +43,12 @@ namespace ManagerComputer
             // User login → start Agent, connect to server
             if (UserCredentials.TryGetValue(username, out var expectedPassword) && password == expectedPassword)
             {
+                if (string.IsNullOrWhiteSpace(serverIp))
+                {
+                    ShowError("Please enter the server IP address.");
+                    return;
+                }
+
                 try
                 {
                     var agentService = new AgentService();
@@ -61,8 +68,8 @@ namespace ManagerComputer
                         Dispatcher.Invoke(() => overlay?.ForceClose());
                     };
 
-                    // Connect to server (admin PC IP)
-                    await agentService.StartAsync("127.0.0.1"); // ← change to teacher's IP
+                    // Connect to server using the IP from the input field
+                    await agentService.StartAsync(serverIp);
 
                     var waiting = new Window
                     {
@@ -85,9 +92,9 @@ namespace ManagerComputer
                     waiting.Show();
                     Close();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    ShowError("Could not connect to server. Is the teacher's PC running?");
+                    ShowError($"Error: {ex.Message}");
                 }
                 return;
             }

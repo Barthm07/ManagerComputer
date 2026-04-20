@@ -1,14 +1,14 @@
 ﻿using System.Windows;
-using System.Windows.Input;
 
 namespace ManagerComputer.Agent
 {
     public partial class LockOverlay : Window
     {
+        private bool _forceClose = false;
+
         public LockOverlay()
         {
             InitializeComponent();
-            // Block all keyboard and mouse input
             KeyDown += (s, e) => e.Handled = true;
             PreviewKeyDown += (s, e) => e.Handled = true;
             PreviewMouseDown += (s, e) => e.Handled = true;
@@ -16,16 +16,13 @@ namespace ManagerComputer.Agent
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            // Prevent user from closing it manually
-            e.Cancel = true;
+            if (!_forceClose)
+                e.Cancel = true; // block user from closing
         }
 
         public void ForceClose()
         {
-            Closing -= (s, e) => { };
-            // Temporarily allow closing
-            var handler = new System.ComponentModel.CancelEventHandler((s, e) => e.Cancel = false);
-            Closing += handler;
+            _forceClose = true;
             Close();
         }
     }
