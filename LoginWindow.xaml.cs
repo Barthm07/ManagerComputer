@@ -92,9 +92,9 @@ namespace ManagerComputer
                     waiting.Show();
                     Close();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    ShowError("Could not connect to server. Is the teacher's PC running?");
+                    ShowError($"Error: {ex.Message}");
                 }
                 return;
             }
